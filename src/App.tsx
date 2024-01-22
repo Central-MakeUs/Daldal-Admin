@@ -1,7 +1,12 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import './App.css';
 
+const queryClient = new QueryClient();
+
 function App() {
-	return <div>admin 페이지</div>;
+	return (
+		<QueryClientProvider client={queryClient}>Hello World</QueryClientProvider>
+	);
 }
 
 export default App;
