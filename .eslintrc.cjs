@@ -7,7 +7,10 @@ module.exports = {
 		'plugin:import/typescript',
 		'plugin:import/recommended',
 		'plugin:react-hooks/recommended',
+		'plugin:storybook/recommended',
 	],
+	ignorePatterns: ['dist', '.eslintrc.cjs'],
+	parser: '@typescript-eslint/parser',
 	settings: {
 		'import/resolver': {
 			node: {},
@@ -19,9 +22,7 @@ module.exports = {
 			'@typescript-eslint/parser': ['.ts', '.tsx'],
 		},
 	},
-	ignorePatterns: ['dist', '.eslintrc.cjs'],
-	parser: '@typescript-eslint/parser',
-	plugins: ['react-refresh', 'import'],
+	plugins: ['react-refresh'],
 	rules: {
 		'react-refresh/only-export-components': [
 			'warn',
