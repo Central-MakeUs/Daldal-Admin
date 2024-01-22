@@ -7,7 +7,6 @@ module.exports = {
 		'plugin:import/typescript',
 		'plugin:import/recommended',
 		'plugin:react-hooks/recommended',
-		'plugin:storybook/recommended',
 	],
 	ignorePatterns: ['dist', '.eslintrc.cjs'],
 	parser: '@typescript-eslint/parser',
