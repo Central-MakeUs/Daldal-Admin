@@ -4,15 +4,48 @@ module.exports = {
 	extends: [
 		'eslint:recommended',
 		'plugin:@typescript-eslint/recommended',
+		'plugin:import/typescript',
+		'plugin:import/recommended',
 		'plugin:react-hooks/recommended',
 	],
+	settings: {
+		'import/resolver': {
+			node: {},
+			typescript: {
+				directory: './src',
+			},
+		},
+		'import/parsers': {
+			'@typescript-eslint/parser': ['.ts', '.tsx'],
+		},
+	},
 	ignorePatterns: ['dist', '.eslintrc.cjs'],
 	parser: '@typescript-eslint/parser',
-	plugins: ['react-refresh'],
+	plugins: ['react-refresh', 'import'],
 	rules: {
 		'react-refresh/only-export-components': [
 			'warn',
 			{ allowConstantExport: true },
 		],
+		'import/order': [
+			'error',
+			{
+				groups: [
+					'builtin',
+					'external',
+					'internal',
+					['parent', 'sibling', 'index'],
+					'type',
+					'unknown',
+				],
+				alphabetize: {
+					order: 'asc',
+					caseInsensitive: true,
+				},
+				'newlines-between': 'always',
+			},
+		],
+		'import/no-unresolved': 'off',
+		'import/export': 'off',
 	},
 };
