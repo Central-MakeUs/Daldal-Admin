@@ -4,13 +4,8 @@ const Header = () => {
 	const navLinkStyle = 'text-black px-[84px] py-3';
 	const activeLinkStyle = 'bg-Primary';
 
-	const navLinkStyleByActive = ({
-		isActive,
-	}: {
-		isActive: boolean;
-		isPending: boolean;
-		isTransitioning: boolean;
-	}): string => (isActive ? activeLinkStyle : '') + ' ' + navLinkStyle;
+	const navLinkStyleByActive = ({ isActive }: { isActive: boolean }): string =>
+		(isActive ? activeLinkStyle : '') + ' ' + navLinkStyle;
 
 	return (
 		<header className="flex justify-between pl-[30px] pr-20 py-3 items-center">
