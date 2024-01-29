@@ -7,11 +7,13 @@ type TableProps = {
 
 const Table = ({ columns, datas }: TableProps) => {
 	return (
-		<table className="border">
-			<thead className="border">
+		<table>
+			<thead>
 				<tr>
 					{columns.map(({ name, key }) => (
-						<th key={key}>{name}</th>
+						<th className="border" key={key}>
+							{name}
+						</th>
 					))}
 				</tr>
 			</thead>
@@ -19,7 +21,9 @@ const Table = ({ columns, datas }: TableProps) => {
 				{datas.map((data, index) => (
 					<tr key={`TableRow#${index}`}>
 						{columns.map(({ key }) => (
-							<td key={key}>{data[key]}</td>
+							<td className="border" key={key}>
+								{data[key]}
+							</td>
 						))}
 					</tr>
 				))}
