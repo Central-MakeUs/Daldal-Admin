@@ -1,14 +1,15 @@
 import { NavLink } from 'react-router-dom';
+import { twMerge } from 'tailwind-merge';
 
 const Header = () => {
 	const navLinkStyle = 'text-black px-[84px] py-3';
 	const activeLinkStyle = 'bg-Primary';
 
 	const navLinkStyleByActive = ({ isActive }: { isActive: boolean }): string =>
-		(isActive ? activeLinkStyle : '') + ' ' + navLinkStyle;
+		twMerge(isActive ? activeLinkStyle : '', navLinkStyle);
 
 	return (
-		<header className="flex justify-between pl-[30px] pr-20 py-3 items-center">
+		<header className="flex justify-between pl-[30px] pr-20 items-center h-20">
 			로고
 			<div className="flex">
 				<NavLink to="/main" className={navLinkStyleByActive}>
