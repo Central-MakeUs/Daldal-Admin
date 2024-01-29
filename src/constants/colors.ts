@@ -16,4 +16,7 @@ const colors = {
 	Background: '#F3F3F3',
 } as const;
 
+export type Color = (typeof colors)[keyof typeof colors];
+export type ColorKey = keyof typeof colors;
+
 export default colors;
