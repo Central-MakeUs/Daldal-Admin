@@ -6,7 +6,7 @@ type PageLayoutProps = {
 
 const PageLayout = ({ children }: PageLayoutProps) => {
 	return (
-		<div className="pl-[72px] pr-[124px] pt-[42px] pb-[55px] bg-Background h-[calc(100vh-80px)]">
+		<div className="flex flex-col pl-[72px] pr-[124px] pt-[42px] pb-[55px] bg-Background h-[calc(100vh-80px)]">
 			{children}
 		</div>
 	);
