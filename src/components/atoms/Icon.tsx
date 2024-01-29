@@ -1,14 +1,6 @@
 import iconSvg from '@assets/icon.svg';
-import colors, { ColorKey } from '@constants/colors';
-import { IconId } from '@type/icon';
-
-type IconProps = {
-	id: IconId;
-	color: ColorKey;
-	size?: number;
-	width?: number;
-	height?: number;
-};
+import colors from '@constants/colors';
+import { IconProps } from '@type/icon';
 
 const Icon = ({ id, color, size, width, height }: IconProps) => {
 	return (
