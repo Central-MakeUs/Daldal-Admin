@@ -14,6 +14,8 @@ const colors = {
 	Gray10: '#D8DEED',
 	Error: '#FF8989',
 	Background: '#F3F3F3',
+	Section: '#D7D7D7',
+	Title_Background: '#B6B6B6',
 } as const;
 
 export type Color = (typeof colors)[keyof typeof colors];
