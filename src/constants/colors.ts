@@ -13,6 +13,7 @@ const colors = {
 	Gray20: '#BBC2D2',
 	Gray10: '#D8DEED',
 	Error: '#FF8989',
+	Background: '#F3F3F3',
 } as const;
 
 export default colors;
