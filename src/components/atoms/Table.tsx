@@ -1,3 +1,5 @@
+import { twMerge } from 'tailwind-merge';
+
 import { TableColumns, TableDatas } from '@type/table';
 
 type TableProps = {
@@ -7,11 +9,11 @@ type TableProps = {
 
 const Table = ({ columns, datas }: TableProps) => {
 	return (
-		<table>
+		<table className="w-full h-full table-fixed">
 			<thead>
-				<tr>
-					{columns.map(({ name, key }) => (
-						<th className="border" key={key}>
+				<tr className="bg-Title_Background">
+					{columns.map(({ name, key, style }) => (
+						<th className={twMerge('border overflow-hidden', style)} key={key}>
 							{name}
 						</th>
 					))}
@@ -21,8 +23,11 @@ const Table = ({ columns, datas }: TableProps) => {
 				{datas.map((data, index) => (
 					<tr key={`TableRow#${index}`}>
 						{columns.map(({ key }) => (
-							<td className="border" key={key}>
-								{data[key]}
+							<td
+								className="border table-fixed text-ellipsis overflow-hidden text-center"
+								key={key}
+							>
+								{`${data[key]}`}
 							</td>
 						))}
 					</tr>
