@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react';
+import { ChangeEvent, Dispatch, SetStateAction, KeyboardEvent } from 'react';
 
 type TableDataInputProps = {
 	value: string;
@@ -11,18 +11,29 @@ const TableDataInput = ({
 	setValue,
 	setIsEditing,
 }: TableDataInputProps) => {
+	const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
+		setValue(event.target.value);
+	};
+
+	const handleOnBlur = () => {
+		// TODO: blur에도 api post / patch 요청 보내기
+		setIsEditing(false);
+	};
+
+	const handleOnKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+		if (event.key === 'Enter') {
+			// TODO: enter에도 api post / patch 요청 보내기
+			setIsEditing(false);
+		}
+	};
+
 	return (
 		<input
 			type="text"
 			value={value}
-			onChange={event => setValue(event.target.value)}
-			onBlur={() => setIsEditing(false)}
-			autoFocus
-			onKeyDown={event => {
-				if (event.key === 'Enter') {
-					setIsEditing(false);
-				}
-			}}
+			onChange={handleOnChange}
+			onBlur={handleOnBlur}
+			onKeyDown={handleOnKeyDown}
 		/>
 	);
 };
