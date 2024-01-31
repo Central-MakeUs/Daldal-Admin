@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 
+import TableDataInput from '@components/atoms/TableDataInput';
 import { TableDataKey } from '@type/table';
 import { getFormattedTableData } from '@utils/formatData';
 
@@ -23,31 +24,26 @@ const TableData = ({
 	);
 	const [isEditing, setIsEditing] = useState(false);
 
-	if (isEditing) {
-		return (
-			<td className={twMerge('border overflow-hidden text-center', style)}>
-				<input
-					type="text"
+	const renderValueOrInput = () => {
+		if (isEditing) {
+			return (
+				<TableDataInput
 					value={value}
-					onChange={event => setValue(event.target.value)}
-					onBlur={() => setIsEditing(false)}
-					autoFocus
-					onKeyDown={event => {
-						if (event.key === 'Enter') {
-							setIsEditing(false);
-						}
-					}}
+					setValue={setValue}
+					setIsEditing={setIsEditing}
 				/>
-			</td>
-		);
-	}
+			);
+		}
+
+		return value;
+	};
 
 	return (
 		<td
 			className={twMerge('border overflow-hidden text-center', style)}
 			onClick={() => isEditable && setIsEditing(prev => !prev)}
 		>
-			{value}
+			{renderValueOrInput()}
 		</td>
 	);
 };
