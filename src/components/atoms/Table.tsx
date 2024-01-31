@@ -34,6 +34,7 @@ const Table = ({ columns, datas }: TableProps) => {
 										isEditable={isEditable}
 										isClickable={isClickPossible}
 										key={`TableData#${key}`}
+										id={data.id}
 									/>
 								);
 							},

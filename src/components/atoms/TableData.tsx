@@ -11,6 +11,7 @@ type TableDataProps = {
 	isEditable?: boolean;
 	isClickable?: boolean;
 	headerKey: TableDataKey;
+	id: number | 'new';
 };
 
 const TableData = ({
@@ -18,6 +19,7 @@ const TableData = ({
 	style,
 	isEditable,
 	headerKey,
+	id,
 }: TableDataProps) => {
 	const [value, setValue] = useState(
 		getFormattedTableData(headerKey, defaultValue),
@@ -37,6 +39,8 @@ const TableData = ({
 					value={value}
 					setValue={setValue}
 					setIsEditing={setIsEditing}
+					headerKey={headerKey}
+					id={id}
 				/>
 			);
 		}
