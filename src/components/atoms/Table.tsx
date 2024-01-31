@@ -1,9 +1,11 @@
 import { twMerge } from 'tailwind-merge';
 
-import { TableColumns, TableDatas } from '@type/table';
+import TableData from '@components/atoms/TableData';
+import { TableColumnList } from '@models/crawling/entity/crawling';
+import { TableDatas } from '@type/table';
 
 type TableProps = {
-	columns: TableColumns;
+	columns: TableColumnList;
 	datas: TableDatas;
 };
 
@@ -22,14 +24,20 @@ const Table = ({ columns, datas }: TableProps) => {
 			<tbody>
 				{datas.map((data, index) => (
 					<tr key={`TableRow#${index}`}>
-						{columns.map(({ key }) => (
-							<td
-								className="border table-fixed text-ellipsis overflow-hidden text-center"
-								key={key}
-							>
-								{`${data[key]}`}
-							</td>
-						))}
+						{columns.map(
+							({ key, style, isEditable = false, isClickPossible = false }) => {
+								return (
+									<TableData
+										headerKey={key}
+										defaultValue={String(data[key])}
+										style={style}
+										isEditable={isEditable}
+										isClickable={isClickPossible}
+										key={`TableData#${key}`}
+									/>
+								);
+							},
+						)}
 					</tr>
 				))}
 			</tbody>
