@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-import { TableData } from '@type/table';
+import { TableDataKey } from '@type/table';
 
 type TableDataProps = {
 	defaultValue: string;
 	style: string;
 	isEditable?: boolean;
 	isClickable?: boolean;
-	headerKey: keyof TableData;
+	headerKey: TableDataKey;
 };
 
 const TableData = ({
