@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 
+import ShowDataButton from '@components/atoms/ShowDataButton';
 import TableDataInput from '@components/atoms/TableDataInput';
 import { TableDataKey } from '@type/table';
 import { getFormattedTableData } from '@utils/formatData';
@@ -19,6 +20,7 @@ const TableData = ({
 	style,
 	isEditable,
 	headerKey,
+	isClickable,
 	id,
 }: TableDataProps) => {
 	const [value, setValue] = useState(
@@ -47,6 +49,10 @@ const TableData = ({
 
 		return value;
 	};
+
+	if (isClickable) {
+		return <ShowDataButton id={id} style={style} />;
+	}
 
 	return (
 		<td
