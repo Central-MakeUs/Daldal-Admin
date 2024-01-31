@@ -1,9 +1,10 @@
 import ButtonWithIcon from '@components/atoms/ButtonWithIcon';
+import { useTableDataActions } from '@stores/tableData';
 
 const ButtonWithIconGroup = () => {
+	const { addNewProduct } = useTableDataActions();
 	const handleAddColumns = () => {
-		// TODO: 열 추가하기 구현
-		console.log('열 추가하기 구현');
+		addNewProduct();
 	};
 
 	const handleRefresh = () => {
