@@ -19,14 +19,25 @@ type TableDataStore = {
 	datas: TableDataList;
 	actions: {
 		addNewProduct: () => void;
+		isNewProductExist: () => boolean;
+		setDatas: (datas: TableDataList) => void;
 	};
 };
 
-const useTableDataStore = create<TableDataStore>(set => ({
+const useTableDataStore = create<TableDataStore>((set, get) => ({
 	datas: [defaultCrawlingData],
 	actions: {
-		addNewProduct: () =>
-			set(state => ({ datas: [...state.datas, defaultCrawlingData] })),
+		isNewProductExist: () => {
+			const datas = get().datas;
+			return datas.some(data => data.id === 'new');
+		},
+		addNewProduct: () => {
+			const isNewProductExist = get().actions.isNewProductExist();
+			if (isNewProductExist) {
+				return;
+			}
+			set(state => ({ datas: [...state.datas, defaultCrawlingData] }));
+		},
 		setDatas: (datas: TableDataList) => set({ datas }),
 	},
 }));
