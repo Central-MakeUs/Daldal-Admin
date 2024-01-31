@@ -1,7 +1,7 @@
 import {
-	CrawlingReadOnlyTableColumnList,
+	CrawlingTableData,
 	CrawlingTableDataList,
 } from '@models/crawling/entity/crawling';
 
-export type TableColumns = CrawlingReadOnlyTableColumnList;
 export type TableDatas = CrawlingTableDataList;
+export type TableData = CrawlingTableData;
