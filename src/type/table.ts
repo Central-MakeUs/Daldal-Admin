@@ -3,5 +3,5 @@ import {
 	CrawlingTableDataList,
 } from '@models/crawling/entity/crawling';
 
-export type TableDatas = CrawlingTableDataList;
+export type TableDataList = CrawlingTableDataList;
 export type TableData = CrawlingTableData;

@@ -2,11 +2,11 @@ import { twMerge } from 'tailwind-merge';
 
 import TableData from '@components/atoms/TableData';
 import { TableColumnList } from '@models/crawling/entity/crawling';
-import { TableDatas } from '@type/table';
+import { TableDataList } from '@type/table';
 
 type TableProps = {
 	columns: TableColumnList;
-	datas: TableDatas;
+	datas: TableDataList;
 };
 
 const Table = ({ columns, datas }: TableProps) => {
