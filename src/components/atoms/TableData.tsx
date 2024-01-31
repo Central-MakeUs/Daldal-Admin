@@ -22,7 +22,7 @@ const TableData = ({
 			case 'isOpen':
 				return '보기';
 			case 'isMDPick':
-				return defaultValue ? 'Y' : 'N';
+				return defaultValue === 'true' ? 'Y' : 'N';
 			default:
 				return defaultValue;
 		}
