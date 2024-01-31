@@ -1,24 +1,29 @@
 /** @type {import('tailwindcss').Config} */
-import tailwindAnimates from 'tailwindcss-animate';
+import defaultTheme from 'tailwindcss/defaultTheme';
+import plugin from 'tailwindcss/plugin';
+import tailwindAnimate from 'tailwindcss-animate';
+
+import colors from './src/constants/colors';
+import { fonts } from './src/constants/typos';
 
 export default {
-	darkMode: ['class'],
-	content: [
-		'./pages/**/*.{ts,tsx}',
-		'./components/**/*.{ts,tsx}',
-		'./app/**/*.{ts,tsx}',
-		'./src/**/*.{ts,tsx}',
+	content: ['./src/**/*.{js,jsx,ts,tsx}', './index.html'],
+	darkMode: 'class',
+	plugins: [
+		plugin(({ addComponents }) => {
+			addComponents(fonts);
+		}),
+		tailwindAnimate,
 	],
-	prefix: '',
 	theme: {
-		container: {
-			center: true,
-			padding: '2rem',
-			screens: {
-				'2xl': '1400px',
-			},
+		screens: {
+			xxs: '320px',
+			xs: '375px',
+			...defaultTheme.screens,
 		},
-		extend: {
+		colors: colors,
+		extends: {
+			fontFamily: { SUIT: ['SUIT', 'sans-serif'] },
 			keyframes: {
 				'accordion-down': {
 					from: { height: '0' },
@@ -35,5 +40,4 @@ export default {
 			},
 		},
 	},
-	plugins: [tailwindAnimates],
 };
