@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 import { TableDataKey } from '@type/table';
+import { getFormattedTableData } from '@utils/formatData';
 
 type TableDataProps = {
 	defaultValue: string;
@@ -17,18 +18,9 @@ const TableData = ({
 	isEditable,
 	headerKey,
 }: TableDataProps) => {
-	const getValue = () => {
-		switch (headerKey) {
-			case 'isOpen':
-				return '보기';
-			case 'isMDPick':
-				return defaultValue === 'true' ? 'Y' : 'N';
-			default:
-				return defaultValue;
-		}
-	};
-
-	const [value, setValue] = useState(getValue());
+	const [value, setValue] = useState(
+		getFormattedTableData(headerKey, defaultValue),
+	);
 	const [isEditing, setIsEditing] = useState(false);
 
 	if (isEditing) {
