@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 
+import { crawlingTableMockData } from '@mocks/crawling';
 import { TableData, TableDataList } from '@type/table';
 
 const defaultCrawlingData: TableData = {
@@ -21,11 +22,12 @@ type TableDataStore = {
 		addNewProduct: () => void;
 		isNewProductExist: () => boolean;
 		setDatas: (datas: TableDataList) => void;
+		getDataById: (id: number | 'new') => TableData;
 	};
 };
 
 const useTableDataStore = create<TableDataStore>((set, get) => ({
-	datas: [defaultCrawlingData],
+	datas: [crawlingTableMockData(1)],
 	actions: {
 		isNewProductExist: () => {
 			const datas = get().datas;
@@ -39,6 +41,10 @@ const useTableDataStore = create<TableDataStore>((set, get) => ({
 			set(state => ({ datas: [...state.datas, defaultCrawlingData] }));
 		},
 		setDatas: (datas: TableDataList) => set({ datas }),
+		getDataById: (id: number | 'new') => {
+			const datas = get().datas;
+			return datas.find(data => data.id === id) || defaultCrawlingData;
+		},
 	},
 }));
 
