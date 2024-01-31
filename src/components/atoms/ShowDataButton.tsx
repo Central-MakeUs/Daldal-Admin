@@ -8,9 +8,10 @@ import {
 } from '@components/ui/dialog';
 import { CrawlingTableDataKey } from '@models/crawling/entity/crawling';
 import { useTableDataActions } from '@stores/tableData';
+import { TableDataId } from '@type/table';
 
 type ShowDataButtonProps = {
-	id: number | 'new';
+	id: TableDataId;
 	style: string;
 };
 

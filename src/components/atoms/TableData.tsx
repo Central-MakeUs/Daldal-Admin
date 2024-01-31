@@ -3,7 +3,7 @@ import { twMerge } from 'tailwind-merge';
 
 import ShowDataButton from '@components/atoms/ShowDataButton';
 import TableDataInput from '@components/atoms/TableDataInput';
-import { TableDataKey } from '@type/table';
+import { TableDataId, TableDataKey } from '@type/table';
 import { getFormattedTableData } from '@utils/formatData';
 
 type TableDataProps = {
@@ -12,7 +12,7 @@ type TableDataProps = {
 	isEditable?: boolean;
 	isClickable?: boolean;
 	headerKey: TableDataKey;
-	id: number | 'new';
+	id: TableDataId;
 };
 
 const TableData = ({

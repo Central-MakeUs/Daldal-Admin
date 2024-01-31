@@ -1,8 +1,9 @@
 import { CrawlingTableData } from '@models/crawling/entity/crawling';
+import { TableDataId } from '@type/table';
 
 export const crawlingTableMockData: (
-	id: number | 'new',
-) => CrawlingTableData = (id: number | 'new') => ({
+	id: TableDataId,
+) => CrawlingTableData = id => ({
 	id: id === 'new' ? Math.random() : id,
 	detail: '상품 상세 설명',
 	thumbnailUrl: 'https://via.placeholder.com/150',
@@ -25,6 +26,6 @@ export const crawlingTableMockDataList = Array(10)
 	.fill(undefined)
 	.map((_, index) => crawlingTableMockData(index));
 
-export const crawlingProductLink = (id: number | 'new') => {
+export const crawlingProductLink = (id: TableDataId) => {
 	return crawlingTableMockData(id);
 };

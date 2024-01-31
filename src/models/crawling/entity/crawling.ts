@@ -1,5 +1,7 @@
+import { TableDataId } from '@type/table';
+
 export type CrawlingTableData = {
-	id: number | 'new';
+	id: TableDataId;
 	detail: string;
 	price: number;
 	thumbnailUrl: string;

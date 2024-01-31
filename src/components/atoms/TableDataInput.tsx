@@ -1,13 +1,13 @@
 import { ChangeEvent, Dispatch, SetStateAction, KeyboardEvent } from 'react';
 
-import { TableDataKey } from '@type/table';
+import { TableDataId, TableDataKey } from '@type/table';
 
 type TableDataInputProps = {
 	value: string;
 	setValue: Dispatch<SetStateAction<string>>;
 	setIsEditing: Dispatch<SetStateAction<boolean>>;
 	headerKey: TableDataKey;
-	id: number | 'new';
+	id: TableDataId;
 };
 
 const TableDataInput = ({
