@@ -24,6 +24,12 @@ const TableData = ({
 	);
 	const [isEditing, setIsEditing] = useState(false);
 
+	const handleClickTableData = () => {
+		if (isEditable) {
+			setIsEditing(prev => !prev);
+		}
+	};
+
 	const renderValueOrInput = () => {
 		if (isEditing) {
 			return (
@@ -41,7 +47,7 @@ const TableData = ({
 	return (
 		<td
 			className={twMerge('border overflow-hidden text-center', style)}
-			onClick={() => isEditable && setIsEditing(prev => !prev)}
+			onClick={handleClickTableData}
 		>
 			{renderValueOrInput()}
 		</td>
