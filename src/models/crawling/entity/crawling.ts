@@ -1,5 +1,5 @@
 export type CrawlingTableData = {
-	id: number;
+	id: number | 'new';
 	detail: string;
 	price: number;
 	thumbnailUrl: string;
