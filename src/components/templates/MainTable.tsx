@@ -1,10 +1,9 @@
 import CrawlingSection from '@components/organisms/main/CrawlingSection';
 import EnterDataSection from '@components/organisms/main/EnterDataSection';
-import { crawlingReadOnlyMockData } from '@mocks/crawling';
+import { useTableDatas } from '@stores/tableData';
 
 const MainTable = () => {
-	// TODO: 데이터 가져오기 구현
-	const datas = crawlingReadOnlyMockData;
+	const datas = useTableDatas();
 
 	return (
 		<div className="flex gap-[34px]">
