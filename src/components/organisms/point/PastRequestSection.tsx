@@ -12,7 +12,7 @@ const PastRequestSection = ({ datas }: PastRequestSectionProps) => {
 
 	return (
 		<div className="h-1/2 overflow-auto">
-			<Title title="환급 요청 유저" />
+			<Title title="전체 유저" />
 			<Table columns={pointTableColumns} datas={selectedRequestdatas} />
 		</div>
 	);
