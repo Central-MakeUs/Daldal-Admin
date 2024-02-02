@@ -1,12 +1,10 @@
 import {
 	CrawlingTableData,
-	CrawlingTableDataKey,
 	CrawlingTableDataList,
 	CrawlingTableDataValue,
 } from '@models/crawling/entity/crawling';
 import {
 	UserTableData,
-	UserTableDataKey,
 	UserTableDataList,
 	UserTableDataValue,
 } from '@models/user/entity/user';
@@ -14,7 +12,8 @@ import {
 export type TableDataList = CrawlingTableDataList | UserTableDataList;
 export type TableData = CrawlingTableData | UserTableData;
 
-export type TableDataKey = CrawlingTableDataKey | UserTableDataKey;
+type UnionKeys<T> = T extends T ? keyof T : never;
+export type TableDataKey = UnionKeys<TableData>;
 export type TableDataValue = CrawlingTableDataValue | UserTableDataValue;
 
 export type TableDataId = number | 'new';

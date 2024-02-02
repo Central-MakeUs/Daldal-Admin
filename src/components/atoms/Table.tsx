@@ -29,7 +29,7 @@ const Table = ({ columns, datas }: TableProps) => {
 								return (
 									<TableData
 										headerKey={key}
-										defaultValue={String(data[key])}
+										defaultValue={data[key as keyof typeof data]}
 										style={style}
 										isEditable={isEditable}
 										isClickable={isClickPossible}
