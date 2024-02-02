@@ -9,7 +9,7 @@ const Product = () => {
 
 	return (
 		<PageLayout>
-			<div className="h-full flex flex-col justify-between">
+			<div className="h-full flex flex-col justify-between gap-10">
 				<RequestUserSection datas={datas} />
 				<AllUserSection datas={datas} />
 			</div>
