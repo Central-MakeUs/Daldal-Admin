@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 import ShowDataButton from '@components/atoms/ShowDataButton';
+import ShowImagesButton from '@components/atoms/ShowImagesButton';
 import TableDataInput from '@components/atoms/TableDataInput';
 import { TableDataId, TableDataKey, TableDataValue } from '@type/table';
 import { getFormattedTableData } from '@utils/formatData';
@@ -51,7 +52,11 @@ const TableData = ({
 	};
 
 	if (isClickable) {
-		return <ShowDataButton id={id} style={style} />;
+		if (headerKey === 'isOpen') {
+			return <ShowDataButton id={id} style={style} />;
+		} else if (headerKey === 'approvalImageUrls') {
+			return <ShowImagesButton value={value as string[]} style={style} />;
+		}
 	}
 
 	return (
