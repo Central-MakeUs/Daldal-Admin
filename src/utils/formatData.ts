@@ -8,9 +8,9 @@ export const getFormattedTableData = (
 		case 'isOpen':
 			return '보기';
 		case 'isMDPick':
-			return value === 'true' ? 'Y' : 'N';
+			return value ? 'Y' : 'N';
 		case 'isRefund':
-			return value === 'true' ? 'Y' : 'N';
+			return value ? 'Y' : 'N';
 		default:
 			return value;
 	}
