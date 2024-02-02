@@ -1,10 +1,10 @@
 import Table from '@components/atoms/Table';
 import Title from '@components/atoms/Title';
 import { userTableColumns } from '@models/crawling/entity/crawling';
-import { TableDataList } from '@type/table';
+import { UserTableDataList } from '@models/user/entity/user';
 
 type AllUserSectionProps = {
-	datas: TableDataList;
+	datas: UserTableDataList;
 };
 
 const AllUserSection = ({ datas }: AllUserSectionProps) => {

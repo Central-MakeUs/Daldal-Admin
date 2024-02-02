@@ -57,7 +57,7 @@ const ShowDataButton = ({ id, style }: ShowDataButtonProps) => {
 					<DialogHeader>데이터 보기</DialogHeader>
 					<div>
 						{Object.keys(data).map(key =>
-							renderImageOrImages(key as TableDataKey),
+							renderImageOrImages(key as keyof typeof data),
 						)}
 					</div>
 				</DialogContent>
