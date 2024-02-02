@@ -8,10 +8,12 @@ type AllUserSectionProps = {
 };
 
 const AllUserSection = ({ datas }: AllUserSectionProps) => {
+	const allUsers = datas.filter(data => data.isRefund === true);
+
 	return (
 		<div className="h-1/2 overflow-auto">
 			<Title title="전체 유저" />
-			<Table columns={userTableColumns} datas={datas} />
+			<Table columns={userTableColumns} datas={allUsers} />
 		</div>
 	);
 };
