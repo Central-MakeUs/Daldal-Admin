@@ -96,7 +96,12 @@ export const userTableColumns: TableColumnList = [
 export const pointTableColumns: TableColumnList = [
 	{ name: '유저명', key: 'name', style: 'w-full' },
 	{ name: '요청 시간', key: 'refundRequestedDate', style: 'w-full' },
-	{ name: '이미지', key: 'imageUrls', style: 'w-full' },
+	{
+		name: '이미지',
+		key: 'approvalImageUrls',
+		style: 'w-full',
+		isClickPossible: true,
+	},
 	{ name: '결제 시점', key: 'orderTime', style: 'w-full' },
 	{ name: '구매액', key: 'price', style: 'w-full' },
 	{ name: '승인 포인트', key: 'point', style: 'w-full' },
