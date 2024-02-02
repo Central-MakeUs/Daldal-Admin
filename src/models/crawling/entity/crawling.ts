@@ -1,3 +1,4 @@
+import { PointTableDataKey } from '@models/point/entity/point';
 import { UserTableDataKey } from '@models/user/entity/user';
 import { TableDataId } from '@type/table';
 
@@ -29,7 +30,7 @@ export const crawlingReadOnlyTableColumns: TableColumnList = [
 
 export type TableColumn = {
 	name: string;
-	key: CrawlingTableDataKey | UserTableDataKey;
+	key: CrawlingTableDataKey | UserTableDataKey | PointTableDataKey;
 	style: string;
 	isClickPossible?: boolean;
 	onClcik?: () => void;
@@ -68,4 +69,15 @@ export const userTableColumns: TableColumnList = [
 		style: 'max-w-[168px] w-full',
 		isEditable: true,
 	},
+];
+
+export const pointTableColumns: TableColumnList = [
+	{ name: '유저명', key: 'name', style: 'w-full' },
+	{ name: '요청 시간', key: 'refundRequestedDate', style: 'w-full' },
+	{ name: '이미지', key: 'imageUrls', style: 'w-full' },
+	{ name: '결제 시점', key: 'orderTime', style: 'w-full' },
+	{ name: '구매액', key: 'price', style: 'w-full' },
+	{ name: '승인 포인트', key: 'point', style: 'w-full' },
+	{ name: '승인 여부', key: 'isApproved', style: 'w-full' },
+	{ name: '사유', key: 'reason', style: 'w-full' },
 ];
