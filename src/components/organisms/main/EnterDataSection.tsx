@@ -1,6 +1,6 @@
 import Table from '@components/atoms/Table';
 import SectionTitle from '@components/molcules/main/SectionTitle';
-import { crawlingWritableTableColumns } from '@models/crawling/entity/crawling';
+import { crawlingWritableTableColumns } from '@constants/columns';
 import { TableDataList } from '@type/table';
 
 type EnterDataSectionProps = {

@@ -1,6 +1,6 @@
 import Table from '@components/atoms/Table';
 import Title from '@components/atoms/Title';
-import { pointTableColumns } from '@models/crawling/entity/crawling';
+import { pointTableColumns } from '@constants/columns';
 import { PointTableDataList } from '@models/point/entity/point';
 
 type CurrentRequestSectionProps = {

@@ -1,3 +1,14 @@
+export type TableColumn = {
+	name: string;
+	key: CrawlingTableDataKey | UserTableDataKey | PointTableDataKey;
+	style: string;
+	isClickPossible?: boolean;
+	onClcik?: () => void;
+	isEditable?: boolean;
+};
+
+export type TableColumnList = TableColumn[];
+
 import {
 	CrawlingTableData,
 	CrawlingTableDataKey,

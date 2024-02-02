@@ -1,6 +1,6 @@
 import Table from '@components/atoms/Table';
 import SectionTitle from '@components/molcules/main/SectionTitle';
-import { crawlingReadOnlyTableColumns } from '@models/crawling/entity/crawling';
+import { crawlingReadOnlyTableColumns } from '@constants/columns';
 import { TableDataList } from '@type/table';
 
 type CrawlingSectionProps = {
