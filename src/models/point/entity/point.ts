@@ -6,7 +6,7 @@ export type PointTableData = {
 	id: TableDataId;
 	name: string;
 	refundRequestedDate: string;
-	imageUrls: string[];
+	approvalImageUrls: string[];
 	orderTime: string;
 	price: number;
 	point: number;
