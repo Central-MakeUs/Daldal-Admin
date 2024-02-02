@@ -106,5 +106,5 @@ export const pointTableColumns: TableColumnList = [
 	{ name: '구매액', key: 'price', style: 'w-full' },
 	{ name: '승인 포인트', key: 'point', style: 'w-full' },
 	{ name: '승인 여부', key: 'isApproved', style: 'w-full' },
-	{ name: '사유', key: 'reason', style: 'w-full' },
+	{ name: '사유', key: 'reason', style: 'w-full', isEditable: true },
 ];
