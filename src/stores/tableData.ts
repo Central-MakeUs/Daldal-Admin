@@ -38,7 +38,9 @@ const useTableDataStore = create<TableDataStore>((set, get) => ({
 			if (isNewProductExist) {
 				return;
 			}
-			set(state => ({ datas: [...state.datas, defaultCrawlingData] }));
+			set(state => ({
+				datas: [...state.datas, defaultCrawlingData] as TableDataList,
+			}));
 		},
 		setDatas: (datas: TableDataList) => set({ datas }),
 		getDataById: (id: TableDataId) => {

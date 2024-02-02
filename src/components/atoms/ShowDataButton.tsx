@@ -6,9 +6,8 @@ import {
 	DialogHeader,
 	DialogTrigger,
 } from '@components/ui/dialog';
-import { CrawlingTableDataKey } from '@models/crawling/entity/crawling';
 import { useTableDataActions } from '@stores/tableData';
-import { TableDataId } from '@type/table';
+import { TableDataId, TableDataKey } from '@type/table';
 
 type ShowDataButtonProps = {
 	id: TableDataId;
@@ -19,8 +18,8 @@ const ShowDataButton = ({ id, style }: ShowDataButtonProps) => {
 	const { getDataById } = useTableDataActions();
 	const data = getDataById(id);
 
-	const renderImageOrImages = (key: CrawlingTableDataKey) => {
-		const dataInString = data[key].toString();
+	const renderImageOrImages = (key: TableDataKey) => {
+		const dataInString = data[key as keyof typeof data].toString();
 
 		if (key.includes('thumbnail')) {
 			return (
@@ -58,7 +57,7 @@ const ShowDataButton = ({ id, style }: ShowDataButtonProps) => {
 					<DialogHeader>데이터 보기</DialogHeader>
 					<div>
 						{Object.keys(data).map(key =>
-							renderImageOrImages(key as CrawlingTableDataKey),
+							renderImageOrImages(key as keyof typeof data),
 						)}
 					</div>
 				</DialogContent>

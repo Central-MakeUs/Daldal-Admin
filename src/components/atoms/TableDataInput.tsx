@@ -1,10 +1,10 @@
 import { ChangeEvent, Dispatch, SetStateAction, KeyboardEvent } from 'react';
 
-import { TableDataId, TableDataKey } from '@type/table';
+import { TableDataId, TableDataKey, TableDataValue } from '@type/table';
 
 type TableDataInputProps = {
-	value: string;
-	setValue: Dispatch<SetStateAction<string>>;
+	value: TableDataValue;
+	setValue: Dispatch<SetStateAction<TableDataValue>>;
 	setIsEditing: Dispatch<SetStateAction<boolean>>;
 	headerKey: TableDataKey;
 	id: TableDataId;
@@ -37,7 +37,7 @@ const TableDataInput = ({
 	return (
 		<input
 			type="text"
-			value={value}
+			value={String(value)}
 			onChange={handleOnChange}
 			onBlur={handleOnBlur}
 			onKeyDown={handleOnKeyDown}

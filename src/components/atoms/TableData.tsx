@@ -3,11 +3,11 @@ import { twMerge } from 'tailwind-merge';
 
 import ShowDataButton from '@components/atoms/ShowDataButton';
 import TableDataInput from '@components/atoms/TableDataInput';
-import { TableDataId, TableDataKey } from '@type/table';
+import { TableDataId, TableDataKey, TableDataValue } from '@type/table';
 import { getFormattedTableData } from '@utils/formatData';
 
 type TableDataProps = {
-	defaultValue: string;
+	defaultValue: TableDataValue;
 	style: string;
 	isEditable?: boolean;
 	isClickable?: boolean;
