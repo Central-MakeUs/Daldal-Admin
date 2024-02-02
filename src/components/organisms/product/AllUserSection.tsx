@@ -9,7 +9,7 @@ type AllUserSectionProps = {
 
 const AllUserSection = ({ datas }: AllUserSectionProps) => {
 	return (
-		<div>
+		<div className="h-1/2 overflow-auto">
 			<Title title="전체 유저" />
 			<Table columns={userTableColumns} datas={datas} />
 		</div>

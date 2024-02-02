@@ -9,7 +9,7 @@ type RequestUserSectionProps = {
 
 const RequestUserSection = ({ datas }: RequestUserSectionProps) => {
 	return (
-		<div>
+		<div className="h-1/2 overflow-auto">
 			<Title title="환급 요청 유저" />
 			<Table columns={userTableColumns} datas={datas} />
 		</div>
