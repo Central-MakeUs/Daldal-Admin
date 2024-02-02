@@ -1,8 +1,7 @@
 import { twMerge } from 'tailwind-merge';
 
 import TableData from '@components/atoms/TableData';
-import { TableColumnList } from '@models/crawling/entity/crawling';
-import { TableDataList } from '@type/table';
+import { TableColumnList, TableDataList } from '@type/table';
 
 type TableProps = {
 	columns: TableColumnList;

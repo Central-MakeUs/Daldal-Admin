@@ -1,6 +1,6 @@
 import Table from '@components/atoms/Table';
 import Title from '@components/atoms/Title';
-import { userTableColumns } from '@models/crawling/entity/crawling';
+import { userTableColumns } from '@constants/columns';
 import { UserTableDataList } from '@models/user/entity/user';
 
 type RequestUserSectionProps = {
