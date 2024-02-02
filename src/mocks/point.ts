@@ -15,7 +15,10 @@ export const pointTableMockDataList: PointTableDataList = [
 		id: 2,
 		name: '김영희',
 		refundRequestedDate: '2022-01-02',
-		approvalImageUrls: ['https://via.placeholder.com/150'],
+		approvalImageUrls: [
+			'https://via.placeholder.com/150',
+			'https://via.placeholder.com/150',
+		],
 		orderTime: '2022-01-02',
 		price: 20000,
 		point: 2000,
@@ -26,7 +29,10 @@ export const pointTableMockDataList: PointTableDataList = [
 		id: 3,
 		name: '박철수',
 		refundRequestedDate: '2022-01-03',
-		approvalImageUrls: ['https://via.placeholder.com/150'],
+		approvalImageUrls: [
+			'https://via.placeholder.com/150',
+			'https://via.placeholder.com/150',
+		],
 		orderTime: '2022-01-03',
 		price: 30000,
 		point: 3000,
