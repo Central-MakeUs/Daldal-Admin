@@ -8,6 +8,7 @@ export type AdminItem = {
 	thumbnailUrl: string;
 	imageUrls: string[];
 	videoUrls: string[];
+	isOpen: false;
 };
 
 export type AdminItemList = AdminItem[];

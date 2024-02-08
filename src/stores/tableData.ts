@@ -1,19 +1,18 @@
 import { create } from 'zustand';
 
-import { crawlingTableMockData } from '@mocks/crawling';
 import { TableData, TableDataId, TableDataList } from '@type/table';
 
 const defaultCrawlingData: TableData = {
 	id: 'new',
-	detail: '',
+	title: '',
 	thumbnailUrl: '',
 	categoryType: '',
 	imageUrls: [''],
 	videoUrls: [''],
 	redirectUrl: '',
-	isMDPick: false,
-	isOpen: false,
+	isSuggested: false,
 	price: 0,
+	isOpen: false,
 };
 
 type TableDataStore = {
@@ -27,7 +26,7 @@ type TableDataStore = {
 };
 
 const useTableDataStore = create<TableDataStore>((set, get) => ({
-	datas: [crawlingTableMockData(1)],
+	datas: [],
 	actions: {
 		isNewProductExist: () => {
 			const datas = get().datas;
