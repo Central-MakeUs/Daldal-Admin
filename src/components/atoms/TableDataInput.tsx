@@ -62,6 +62,7 @@ const TableDataInput = ({
 			if (headerKey === 'rejectReason') {
 				if (value === '') {
 					alert('거절 사유를 입력해주세요.');
+					return;
 				}
 
 				rejectPoint({ id, rejectReason: String(value) || '' });
