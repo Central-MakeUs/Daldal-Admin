@@ -14,6 +14,6 @@ export type AdminItem = {
 export type AdminItemList = AdminItem[];
 
 export type AdminItemsResponseDTO = {
-	lastPage: number;
+	lastPageNum: number;
 	adminItemResponses: AdminItemList;
 };
