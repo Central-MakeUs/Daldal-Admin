@@ -20,7 +20,7 @@ const Main = () => {
 	return (
 		<PageLayout>
 			<AddRowButton />
-			<MainTable />
+			<MainTable page={+page} />
 			<Pagination>
 				<PaginationContent>
 					<PaginationItem>

@@ -1,20 +1,13 @@
-import { useEffect } from 'react';
-
 import CrawlingSection from '@components/organisms/main/CrawlingSection';
 import EnterDataSection from '@components/organisms/main/EnterDataSection';
 import { useGetAdminItems } from '@hooks/apis/item';
-import { useTableDataActions, useTableDatas } from '@stores/tableData';
 
-const MainTable = () => {
-	const { data, isLoading, isError, error, isSuccess } = useGetAdminItems();
-	const { setDatas } = useTableDataActions();
-	const datas = useTableDatas();
+type MainTalbeProps = {
+	page: number;
+};
 
-	useEffect(() => {
-		if (isSuccess) {
-			setDatas(data?.adminItemResponses);
-		}
-	}, [data?.adminItemResponses, isSuccess, setDatas]);
+const MainTable = ({ page }: MainTalbeProps) => {
+	const { data, isLoading, isError, error } = useGetAdminItems(page);
 
 	if (isLoading) {
 		return <div>로딩중...</div>;
@@ -26,8 +19,9 @@ const MainTable = () => {
 
 	return (
 		<div className="flex gap-[34px]">
-			<CrawlingSection datas={datas} />
-			<EnterDataSection datas={datas} />
+			<CrawlingSection datas={data?.adminItemResponses || []} />
+			<EnterDataSection datas={data?.adminItemResponses || []} />
+			{console.log(data)}
 		</div>
 	);
 };
