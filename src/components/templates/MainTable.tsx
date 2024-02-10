@@ -21,7 +21,6 @@ const MainTable = ({ page }: MainTalbeProps) => {
 		<div className="flex gap-[34px]">
 			<CrawlingSection datas={data?.adminItemResponses || []} />
 			<EnterDataSection datas={data?.adminItemResponses || []} />
-			{console.log(data)}
 		</div>
 	);
 };
