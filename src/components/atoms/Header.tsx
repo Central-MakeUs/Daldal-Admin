@@ -12,7 +12,7 @@ const Header = () => {
 		<header className="flex justify-between pl-[30px] pr-20 items-center h-20">
 			로고
 			<div className="flex">
-				<NavLink to="/main" className={navLinkStyleByActive}>
+				<NavLink to="/" className={navLinkStyleByActive}>
 					메인페이지
 				</NavLink>
 				<NavLink to="/product" className={navLinkStyleByActive}>
