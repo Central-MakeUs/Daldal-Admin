@@ -1,10 +1,26 @@
+import { useQueryClient } from '@tanstack/react-query';
+
 import ButtonWithIcon from '@components/atoms/ButtonWithIcon';
-import { useTableDataActions } from '@stores/tableData';
+import { AdminItemsResponseDTO } from '@models/crawling/response/adminItemsResponseDTO';
+import { defaultCrawlingData } from '@stores/tableData';
+import { ApiResponse } from '@type/apiResponse';
 
 const AddRowButton = () => {
-	const { addNewProduct } = useTableDataActions();
+	const queryClient = useQueryClient();
 	const handleAddColumns = () => {
-		addNewProduct();
+		queryClient.setQueryData(
+			['adminItems'],
+			(prev: ApiResponse<AdminItemsResponseDTO>) => ({
+				...prev,
+				data: {
+					...prev.data,
+					adminItemResponses: [
+						...prev.data.adminItemResponses,
+						defaultCrawlingData,
+					],
+				},
+			}),
+		);
 	};
 
 	return (
