@@ -61,10 +61,15 @@ const TableData = ({
 
 	return (
 		<td
-			className={twMerge('border overflow-hidden text-center', style)}
+			className={twMerge('border overflow-hidden text-center ', style)}
 			onClick={handleClickTableData}
 		>
-			{renderValueOrInput()}
+			<div className="relative">
+				&nbsp;
+				<div className="absolute left-0 top-0 w-full whitespace-nowrap text-ellipsis">
+					{renderValueOrInput()}
+				</div>
+			</div>
 		</td>
 	);
 };

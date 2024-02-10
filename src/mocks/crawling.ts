@@ -5,7 +5,7 @@ export const crawlingTableMockData: (
 	id: TableDataId,
 ) => CrawlingTableData = id => ({
 	id: id === 'new' ? Math.random() : id,
-	detail: '상품 상세 설명',
+	title: '상품 상세 설명',
 	thumbnailUrl: 'https://via.placeholder.com/150',
 	categoryType: '카테고리',
 	imageUrls: [
@@ -17,7 +17,7 @@ export const crawlingTableMockData: (
 		'https://via.placeholder.com/150',
 	],
 	redirectUrl: 'https://via.placeholder.com/150',
-	isMDPick: true,
+	isSuggested: true,
 	isOpen: true,
 	price: 10000,
 });

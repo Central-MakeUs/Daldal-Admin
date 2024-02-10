@@ -1,14 +1,20 @@
+import { useQueryClient } from '@tanstack/react-query';
+
 import CrawlingSection from '@components/organisms/main/CrawlingSection';
 import EnterDataSection from '@components/organisms/main/EnterDataSection';
-import { useTableDatas } from '@stores/tableData';
+import { AdminItemsResponseDTO } from '@models/crawling/response/adminItemsResponseDTO';
+import { ApiResponse } from '@type/apiResponse';
 
 const MainTable = () => {
-	const datas = useTableDatas();
+	const queryClient = useQueryClient();
+	const data = queryClient.getQueryData<ApiResponse<AdminItemsResponseDTO>>([
+		'adminItems',
+	])?.data;
 
 	return (
 		<div className="flex gap-[34px]">
-			<CrawlingSection datas={datas} />
-			<EnterDataSection datas={datas} />
+			<CrawlingSection datas={data?.adminItemResponses || []} />
+			<EnterDataSection datas={data?.adminItemResponses || []} />
 		</div>
 	);
 };

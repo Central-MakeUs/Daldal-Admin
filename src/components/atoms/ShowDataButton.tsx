@@ -6,7 +6,8 @@ import {
 	DialogHeader,
 	DialogTrigger,
 } from '@components/ui/dialog';
-import { useTableDataActions } from '@stores/tableData';
+import { useGetRowDataById } from '@hooks/data';
+import { defaultCrawlingData } from '@stores/tableData';
 import { TableDataId, TableDataKey } from '@type/table';
 
 type ShowDataButtonProps = {
@@ -15,8 +16,7 @@ type ShowDataButtonProps = {
 };
 
 const ShowDataButton = ({ id, style }: ShowDataButtonProps) => {
-	const { getDataById } = useTableDataActions();
-	const data = getDataById(id);
+	const data = useGetRowDataById(id, ['adminItems']) || defaultCrawlingData;
 
 	const renderImageOrImages = (key: TableDataKey) => {
 		const dataInString = data[key as keyof typeof data].toString();

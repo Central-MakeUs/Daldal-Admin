@@ -22,7 +22,7 @@ const Table = ({ columns, datas }: TableProps) => {
 			</thead>
 			<tbody>
 				{datas.map((data, index) => (
-					<tr key={`TableRow#${index}`}>
+					<tr key={`TableRow#${index}${data.id}`}>
 						{columns.map(
 							({ key, style, isEditable = false, isClickPossible = false }) => {
 								return (

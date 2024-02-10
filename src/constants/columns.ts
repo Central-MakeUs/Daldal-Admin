@@ -1,7 +1,7 @@
 import { TableColumnList } from '@type/table';
 
 export const crawlingReadOnlyTableColumns: TableColumnList = [
-	{ name: '상품명', key: 'detail', style: 'w-full ' },
+	{ name: '상품명', key: 'title', style: 'w-full ' },
 	{ name: '상품 가격', key: 'price', style: 'w-max-[141px] w-full ' },
 	{
 		name: '대표 이미지',
@@ -36,7 +36,7 @@ export const crawlingWritableTableColumns: TableColumnList = [
 	},
 	{
 		name: 'Y/N',
-		key: 'isMDPick',
+		key: 'isSuggested',
 		style: 'w-max-[125px] w-full ',
 		isEditable: true,
 	},

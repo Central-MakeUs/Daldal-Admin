@@ -5,7 +5,7 @@ export const getFormattedTableData = (
 	value: TableDataValue,
 ) => {
 	switch (headerKey) {
-		case 'isMDPick':
+		case 'isSuggested':
 			return value ? 'Y' : 'N';
 		case 'isRefund':
 			return value ? 'Y' : 'N';

@@ -2,14 +2,14 @@ import { TableDataId } from '@type/table';
 
 export type CrawlingTableData = {
 	id: TableDataId;
-	detail: string;
+	title: string;
+	redirectUrl: string;
+	categoryType: string;
+	isSuggested: boolean;
 	price: number;
 	thumbnailUrl: string;
 	imageUrls: string[];
-	categoryType: string;
 	videoUrls: string[];
-	redirectUrl: string;
-	isMDPick: boolean;
 	isOpen: boolean;
 };
 

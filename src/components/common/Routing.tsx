@@ -11,7 +11,7 @@ const Routing = () => {
 			<Header />
 			<Routes>
 				<Route path="/" element={<Main />} />
-				<Route path="/main" element={<Main />} />
+				<Route path="/:page" element={<Main />} />
 				<Route path="/product" element={<Product />} />
 				<Route path="/point" element={<Point />} />
 			</Routes>
