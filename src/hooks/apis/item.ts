@@ -1,11 +1,23 @@
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
-import { getAdminItems } from '@apis/item';
+import { crawlAdminItems, getAdminItems } from '@apis/item';
 
-export const useGetAdminItems = (page?: number) => {
+export const useGetAdminItems = (page: number = 1) => {
 	return useQuery({
-		queryKey: ['adminItems', page],
+		queryKey: ['adminItems'],
 		queryFn: () => getAdminItems(page),
 		select: data => data.data,
 	});
+};
+
+export const useCrawlAdminItems = () => {
+	const queryClient = useQueryClient();
+	const { mutate } = useMutation({
+		mutationKey: ['adminItems'],
+		mutationFn: (url: string) => crawlAdminItems(url),
+		onSuccess: () =>
+			queryClient.invalidateQueries({ queryKey: ['adminItems'] }),
+	});
+
+	return { crawlAdminItemsByUrl: mutate };
 };
