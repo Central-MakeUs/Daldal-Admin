@@ -1,5 +1,6 @@
 import { AdminItemsResponseDTO } from '@models/crawling/response/adminItemsResponseDTO';
 import { ApiResponse } from '@type/apiResponse';
+import { TableDataId } from '@type/table';
 
 export const getAdminItems = async (
 	page: number,
@@ -20,6 +21,17 @@ export const crawlAdminItems = async (url: string) => {
 		`https://daldal.karmapol.link/api/v1/admin/items/crawl?url=${url}`,
 		{
 			method: 'POST',
+		},
+	).then(res => res.json());
+
+	return response;
+};
+
+export const addVideoUrl = async (url: string, id: TableDataId) => {
+	const response = await fetch(
+		`https://daldal.karmapol.link/api/v1/admin/items/${id}/video-url?url=${url}&itemId=${id}`,
+		{
+			method: 'PATCH',
 		},
 	).then(res => res.json());
 

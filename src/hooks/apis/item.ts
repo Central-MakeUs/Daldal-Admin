@@ -1,6 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
-import { crawlAdminItems, getAdminItems } from '@apis/item';
+import { addVideoUrl, crawlAdminItems, getAdminItems } from '@apis/item';
+import { AddYoutubeUrlRequestDTO } from '@models/crawling/request/addYoutubeUrlRequestDTO';
 
 export const useGetAdminItems = (page: number = 1) => {
 	return useQuery({
@@ -20,4 +21,16 @@ export const useCrawlAdminItems = () => {
 	});
 
 	return { crawlAdminItemsByUrl: mutate };
+};
+
+export const useAddVideoUrl = () => {
+	const queryClient = useQueryClient();
+	const { mutate } = useMutation({
+		mutationKey: ['adminItems'],
+		mutationFn: ({ url, id }: AddYoutubeUrlRequestDTO) => addVideoUrl(url, id),
+		onSuccess: () =>
+			queryClient.invalidateQueries({ queryKey: ['adminItems'] }),
+	});
+
+	return { addVideoUrl: mutate };
 };

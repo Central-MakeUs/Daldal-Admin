@@ -1,6 +1,6 @@
 import { ChangeEvent, Dispatch, SetStateAction, KeyboardEvent } from 'react';
 
-import { useCrawlAdminItems } from '@hooks/apis/item';
+import { useAddVideoUrl, useCrawlAdminItems } from '@hooks/apis/item';
 import { TableDataId, TableDataKey, TableDataValue } from '@type/table';
 
 type TableDataInputProps = {
@@ -19,6 +19,7 @@ const TableDataInput = ({
 	id,
 }: TableDataInputProps) => {
 	const { crawlAdminItemsByUrl } = useCrawlAdminItems();
+	const { addVideoUrl } = useAddVideoUrl();
 
 	const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
 		setValue(event.target.value);
@@ -33,6 +34,10 @@ const TableDataInput = ({
 			setIsEditing(false);
 			if (headerKey === 'redirectUrl') {
 				crawlAdminItemsByUrl(String(value));
+			}
+
+			if (headerKey === 'videoUrls') {
+				addVideoUrl({ url: String(value), id });
 			}
 		}
 	};
