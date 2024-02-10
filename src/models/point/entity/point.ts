@@ -1,17 +1,15 @@
 import { TableDataId } from '@type/table';
 
-type IsApproved = true | false | '';
-
 export type PointTableData = {
 	id: TableDataId;
-	name: string;
-	refundRequestedDate: string;
-	approvalImageUrls: string[];
-	orderTime: string;
-	price: number;
-	point: number;
-	isApproved: IsApproved;
-	reason?: string;
+	memberId: string;
+	uploadTime: string;
+	approvedTime: string;
+	certImageUrl: string[];
+	purchase: number;
+	refund: number;
+	refundStatus: 'IN_PROGRESS' | 'COMPLETED' | 'REJECTED';
+	rejectReason?: string;
 };
 
 export type PointTableDataKey = keyof PointTableData;
