@@ -37,3 +37,25 @@ export const addVideoUrl = async (url: string, id: TableDataId) => {
 
 	return response;
 };
+
+export const registerSuggestedProduct = async (id: TableDataId) => {
+	const response = await fetch(
+		`https://daldal.karmapol.link/api/v1/admin/items/${id}/suggest`,
+		{
+			method: 'PATCH',
+		},
+	).then(res => res.json());
+
+	return response;
+};
+
+export const unregisterSuggestedProduct = async (id: TableDataId) => {
+	const response = await fetch(
+		`https://daldal.karmapol.link/api/v1/admin/items/${id}/not-suggest`,
+		{
+			method: 'PATCH',
+		},
+	).then(res => res.json());
+
+	return response;
+};

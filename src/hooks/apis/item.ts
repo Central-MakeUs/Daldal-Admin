@@ -1,9 +1,16 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
-import { addVideoUrl, crawlAdminItems, getAdminItems } from '@apis/item';
+import {
+	addVideoUrl,
+	crawlAdminItems,
+	getAdminItems,
+	registerSuggestedProduct,
+	unregisterSuggestedProduct,
+} from '@apis/item';
 import { AddYoutubeUrlRequestDTO } from '@models/crawling/request/addYoutubeUrlRequestDTO';
+import { TableDataId } from '@type/table';
 
-export const useGetAdminItems = (page: number = 1) => {
+const useGetAdminItems = (page: number = 1) => {
 	return useQuery({
 		queryKey: ['adminItems'],
 		queryFn: () => getAdminItems(page),
@@ -11,7 +18,7 @@ export const useGetAdminItems = (page: number = 1) => {
 	});
 };
 
-export const useCrawlAdminItems = () => {
+const useCrawlAdminItems = () => {
 	const queryClient = useQueryClient();
 	const { mutate } = useMutation({
 		mutationKey: ['adminItems'],
@@ -23,7 +30,7 @@ export const useCrawlAdminItems = () => {
 	return { crawlAdminItemsByUrl: mutate };
 };
 
-export const useAddVideoUrl = () => {
+const useAddVideoUrl = () => {
 	const queryClient = useQueryClient();
 	const { mutate } = useMutation({
 		mutationKey: ['adminItems'],
@@ -33,4 +40,36 @@ export const useAddVideoUrl = () => {
 	});
 
 	return { addVideoUrl: mutate };
+};
+
+const useRegisterSuggestedProduct = () => {
+	const queryClient = useQueryClient();
+	const { mutate } = useMutation({
+		mutationKey: ['adminItems'],
+		mutationFn: (id: TableDataId) => registerSuggestedProduct(id),
+		onSuccess: () =>
+			queryClient.invalidateQueries({ queryKey: ['adminItems'] }),
+	});
+
+	return { registerSuggestedProduct: mutate };
+};
+
+const useUnregisterSuggestedProduct = () => {
+	const queryClient = useQueryClient();
+	const { mutate } = useMutation({
+		mutationKey: ['adminItems'],
+		mutationFn: (id: TableDataId) => unregisterSuggestedProduct(id),
+		onSuccess: () =>
+			queryClient.invalidateQueries({ queryKey: ['adminItems'] }),
+	});
+
+	return { unregisterSuggestedProduct: mutate };
+};
+
+export {
+	useGetAdminItems,
+	useCrawlAdminItems,
+	useAddVideoUrl,
+	useRegisterSuggestedProduct,
+	useUnregisterSuggestedProduct,
 };

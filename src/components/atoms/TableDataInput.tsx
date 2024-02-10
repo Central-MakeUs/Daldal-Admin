@@ -1,6 +1,11 @@
 import { ChangeEvent, Dispatch, SetStateAction, KeyboardEvent } from 'react';
 
-import { useAddVideoUrl, useCrawlAdminItems } from '@hooks/apis/item';
+import {
+	useAddVideoUrl,
+	useCrawlAdminItems,
+	useRegisterSuggestedProduct,
+	useUnregisterSuggestedProduct,
+} from '@hooks/apis/item';
 import { TableDataId, TableDataKey, TableDataValue } from '@type/table';
 
 type TableDataInputProps = {
@@ -20,6 +25,8 @@ const TableDataInput = ({
 }: TableDataInputProps) => {
 	const { crawlAdminItemsByUrl } = useCrawlAdminItems();
 	const { addVideoUrl } = useAddVideoUrl();
+	const { registerSuggestedProduct } = useRegisterSuggestedProduct();
+	const { unregisterSuggestedProduct } = useUnregisterSuggestedProduct();
 
 	const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
 		setValue(event.target.value);
@@ -38,6 +45,16 @@ const TableDataInput = ({
 
 			if (headerKey === 'videoUrls') {
 				addVideoUrl({ url: String(value), id });
+			}
+
+			if (headerKey === 'isSuggested') {
+				if (value === 'Y') {
+					registerSuggestedProduct(id);
+				} else if (value === 'N') {
+					unregisterSuggestedProduct(id);
+				} else {
+					alert('Y 또는 N을 입력해주세요.');
+				}
 			}
 		}
 	};
