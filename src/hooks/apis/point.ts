@@ -1,6 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
-import { getPoints, rejectPoint } from '@apis/point';
+import { approvePoint, getPoints, rejectPoint } from '@apis/point';
+import { ApprovePointRequest } from '@models/point/request/approvePointRequestDTO';
 import { RejectPointRequestDTO } from '@models/point/request/rejectPointRequestDTO';
 
 const useGetPoints = (page: number = 1) => {
@@ -23,4 +24,15 @@ const useRejectPoint = () => {
 	return { rejectPoint: mutate };
 };
 
-export { useGetPoints, useRejectPoint };
+const useApprovePoint = () => {
+	const queryClient = useQueryClient();
+	const { mutate } = useMutation({
+		mutationKey: ['points'],
+		mutationFn: ({ id }: ApprovePointRequest) => approvePoint(id),
+		onSuccess: () => queryClient.invalidateQueries({ queryKey: ['points'] }),
+	});
+
+	return { approvePoint: mutate };
+};
+
+export { useGetPoints, useRejectPoint, useApprovePoint };

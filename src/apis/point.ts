@@ -26,3 +26,14 @@ export const rejectPoint = async (id: TableDataId, rejectReason: string) => {
 
 	return response;
 };
+
+export const approvePoint = async (id: TableDataId) => {
+	const response = await fetch(
+		`https://daldal.karmapol.link/api/v1/admin/buys/${id}/approve?buyId=${id}`,
+		{
+			method: 'PATCH',
+		},
+	).then(res => res.json());
+
+	return response;
+};

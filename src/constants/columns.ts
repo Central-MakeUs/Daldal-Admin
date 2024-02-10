@@ -75,6 +75,6 @@ export const pointTableColumns: TableColumnList = [
 	{ name: '결제 시점', key: 'approvedTime', style: 'w-full' },
 	{ name: '구매액', key: 'purchase', style: 'w-full' },
 	{ name: '승인 포인트', key: 'refund', style: 'w-full' },
-	{ name: '승인 여부', key: 'refundStatus', style: 'w-full' },
+	{ name: '승인 여부', key: 'refundStatus', style: 'w-full', isEditable: true },
 	{ name: '사유', key: 'rejectReason', style: 'w-full', isEditable: true },
 ];
