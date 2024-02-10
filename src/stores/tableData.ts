@@ -2,7 +2,7 @@ import { create } from 'zustand';
 
 import { TableData, TableDataId, TableDataList } from '@type/table';
 
-const defaultCrawlingData: TableData = {
+export const defaultCrawlingData: TableData = {
 	id: 'new',
 	title: '',
 	thumbnailUrl: '',
