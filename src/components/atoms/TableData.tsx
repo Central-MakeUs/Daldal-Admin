@@ -54,8 +54,8 @@ const TableData = ({
 	if (isClickable) {
 		if (headerKey === 'isOpen') {
 			return <ShowDataButton id={id} style={style} />;
-		} else if (headerKey === 'approvalImageUrls') {
-			return <ShowImagesButton value={value as string[]} style={style} />;
+		} else if (headerKey === 'certImageUrl') {
+			return <ShowImagesButton value={String(value)} style={style} />;
 		}
 	}
 

@@ -5,7 +5,7 @@ export type PointTableData = {
 	memberId: string;
 	uploadTime: string;
 	approvedTime: string;
-	certImageUrl: string[];
+	certImageUrl: string;
 	purchase: number;
 	refund: number;
 	refundStatus: 'IN_PROGRESS' | 'COMPLETED' | 'REJECTED';
