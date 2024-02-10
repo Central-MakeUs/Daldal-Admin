@@ -1,5 +1,6 @@
 import { ChangeEvent, Dispatch, SetStateAction, KeyboardEvent } from 'react';
 
+import { useCrawlAdminItems } from '@hooks/apis/item';
 import { TableDataId, TableDataKey, TableDataValue } from '@type/table';
 
 type TableDataInputProps = {
@@ -17,20 +18,22 @@ const TableDataInput = ({
 	headerKey,
 	id,
 }: TableDataInputProps) => {
+	const { crawlAdminItemsByUrl } = useCrawlAdminItems();
+
 	const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
 		setValue(event.target.value);
 	};
 
 	const handleOnBlur = () => {
-		// TODO: blur에도 api post / patch 요청 보내기
 		setIsEditing(false);
 	};
 
 	const handleOnKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
 		if (event.key === 'Enter') {
 			setIsEditing(false);
-			// TODO: enter에도 api post / patch 요청 보내기
-			console.log(headerKey, value, id);
+			if (headerKey === 'redirectUrl') {
+				crawlAdminItemsByUrl(String(value));
+			}
 		}
 	};
 
