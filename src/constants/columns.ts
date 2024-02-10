@@ -49,15 +49,15 @@ export const crawlingWritableTableColumns: TableColumnList = [
 ];
 
 export const userTableColumns: TableColumnList = [
-	{ name: '유저명', key: 'name', style: 'max-w-[163px] w-full' },
-	{ name: '구매액', key: 'price', style: 'max-w-[274px] w-full' },
-	{ name: '보유 포인트', key: 'point', style: 'max-w-[292px] w-full' },
+	{ name: '유저명', key: 'memberId', style: 'max-w-[163px] w-full' },
+	{ name: '구매액', key: 'purchase', style: 'max-w-[274px] w-full' },
+	{ name: '보유 포인트', key: 'refund', style: 'max-w-[292px] w-full' },
 	{ name: '은행명', key: 'accountBank', style: 'w-full' },
-	{ name: '계좌번호', key: 'accountNumber', style: 'max-w-[350px] w-full' },
+	{ name: '계좌번호', key: 'account', style: 'max-w-[350px] w-full' },
 	{ name: '환급요청시기', key: 'refundRequestedDate', style: 'w-full' },
 	{
 		name: '환급여부',
-		key: 'isRefund',
+		key: 'refundStatus',
 		style: 'max-w-[168px] w-full',
 		isEditable: true,
 	},

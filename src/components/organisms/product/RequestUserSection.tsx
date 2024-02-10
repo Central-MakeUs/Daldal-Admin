@@ -8,7 +8,9 @@ type RequestUserSectionProps = {
 };
 
 const RequestUserSection = ({ datas }: RequestUserSectionProps) => {
-	const requestUsers = datas.filter(data => data.isRefund === false);
+	const requestUsers = datas.filter(
+		data => data.refundStatus === 'WITHDRAWN_IN_PROGRESS',
+	);
 
 	return (
 		<div className="h-1/2 overflow-auto">
