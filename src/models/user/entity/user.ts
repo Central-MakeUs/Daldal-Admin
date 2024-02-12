@@ -2,13 +2,14 @@ import { TableDataId } from '@type/table';
 
 export type UserTableData = {
 	id: TableDataId;
-	name: string;
-	price: number;
-	point: number;
+	memberId: string;
+	depositor: string;
+	purchase: number;
+	refund: number;
 	accountBank: string;
-	accountNumber: string;
-	refundRequestedDate: string;
-	isRefund: boolean;
+	account: string;
+	uploadTime: string;
+	refundStatus: 'WITHDRAWN_IN_PROGRESS' | 'WITHDRAWN_COMPLETED';
 };
 
 export type UserTableDataKey = keyof UserTableData;

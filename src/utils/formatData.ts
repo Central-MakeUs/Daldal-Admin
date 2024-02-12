@@ -8,17 +8,17 @@ export const getFormattedTableData = (
 		IN_PROGRESS: '',
 		COMPLETED: 'Y',
 		REJECTED: 'N',
+		WITHDRAWN_IN_PROGRESS: 'N',
+		WITHDRAWN_COMPLETED: 'Y',
 	};
+
+	type refundStatusType = keyof typeof refundStatusMapping;
 
 	switch (headerKey) {
 		case 'isSuggested':
 			return value ? 'Y' : 'N';
-		case 'isRefund':
-			return value ? 'Y' : 'N';
 		case 'refundStatus':
-			return refundStatusMapping[
-				value as 'IN_PROGRESS' | 'COMPLETED' | 'REJECTED'
-			];
+			return refundStatusMapping[value as refundStatusType];
 		default:
 			return value;
 	}
