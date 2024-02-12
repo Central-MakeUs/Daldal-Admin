@@ -19,24 +19,20 @@ export const crawlAdminItems = async (url: string) => {
 
 export const addVideoUrl = async (url: string, id: TableDataId) => {
 	const response = await api.patch(
-		`https://daldal.karmapol.link/api/v1/admin/items/${id}/video-url?url=${url}&itemId=${id}`,
+		`api/v1/admin/items/${id}/video-url?url=${url}&itemId=${id}`,
 	);
 
 	return response.data;
 };
 
 export const registerSuggestedProduct = async (id: TableDataId) => {
-	const response = await api.patch(
-		`https://daldal.karmapol.link/api/v1/admin/items/${id}/suggest`,
-	);
+	const response = await api.patch(`api/v1/admin/items/${id}/suggest`);
 
 	return response.data;
 };
 
 export const unregisterSuggestedProduct = async (id: TableDataId) => {
-	const response = await api.patch(
-		`https://daldal.karmapol.link/api/v1/admin/items/${id}/not-suggest`,
-	);
+	const response = await api.patch(`api/v1/admin/items/${id}/not-suggest`);
 
 	return response.data;
 };
