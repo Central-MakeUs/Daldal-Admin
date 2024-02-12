@@ -8,7 +8,9 @@ type PastRequestSectionProps = {
 };
 
 const PastRequestSection = ({ datas }: PastRequestSectionProps) => {
-	const selectedRequestdatas = datas.filter(data => data.isApproved !== '');
+	const selectedRequestdatas = datas.filter(
+		data => data.refundStatus !== 'IN_PROGRESS',
+	);
 
 	return (
 		<div className="h-1/2 overflow-auto">

@@ -8,7 +8,7 @@ import {
 } from '@components/ui/dialog';
 
 type ShowImagesButtonProps = {
-	value: string[];
+	value: string;
 	style: string;
 };
 
@@ -20,11 +20,7 @@ const ShowImagesButton = ({ value, style }: ShowImagesButtonProps) => {
 				<DialogContent className="bg-White max-h-[calc(100%-50px)] overflow-auto">
 					<DialogHeader>인증 이미지 확인하기</DialogHeader>
 					<div className="flex flex-col w-full gap-4">
-						{value.map((image, index) => {
-							return (
-								<img src={image} alt="이미지" key={`ApprovalImage#${index}`} />
-							);
-						})}
+						<img src={value} alt="이미지" />
 					</div>
 				</DialogContent>
 			</Dialog>

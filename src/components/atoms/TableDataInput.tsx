@@ -6,6 +6,7 @@ import {
 	useRegisterSuggestedProduct,
 	useUnregisterSuggestedProduct,
 } from '@hooks/apis/item';
+import { useApprovePoint, useRejectPoint } from '@hooks/apis/point';
 import { TableDataId, TableDataKey, TableDataValue } from '@type/table';
 
 type TableDataInputProps = {
@@ -27,6 +28,8 @@ const TableDataInput = ({
 	const { addVideoUrl } = useAddVideoUrl();
 	const { registerSuggestedProduct } = useRegisterSuggestedProduct();
 	const { unregisterSuggestedProduct } = useUnregisterSuggestedProduct();
+	const { rejectPoint } = useRejectPoint();
+	const { approvePoint } = useApprovePoint();
 
 	const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
 		setValue(event.target.value);
@@ -54,6 +57,25 @@ const TableDataInput = ({
 					unregisterSuggestedProduct(id);
 				} else {
 					alert('Y 또는 N을 입력해주세요.');
+				}
+			}
+
+			if (headerKey === 'rejectReason') {
+				if (value === '') {
+					alert('거절 사유를 입력해주세요.');
+					return;
+				}
+
+				rejectPoint({ id, rejectReason: String(value) || '' });
+			}
+
+			if (headerKey === 'refundStatus') {
+				if (value === 'Y') {
+					approvePoint({ id });
+				} else if (value === 'N') {
+					alert('N을 입력하면 거절 사유를 입력해주세요.');
+				} else {
+					alert('입력을 다시 확인해주세요.');
 				}
 			}
 		}

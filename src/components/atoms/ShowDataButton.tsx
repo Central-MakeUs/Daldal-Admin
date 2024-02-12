@@ -7,6 +7,7 @@ import {
 	DialogTrigger,
 } from '@components/ui/dialog';
 import { useGetRowDataById } from '@hooks/data';
+import { useGetPageNumber } from '@hooks/page';
 import { defaultCrawlingData } from '@stores/tableData';
 import { TableDataId, TableDataKey } from '@type/table';
 
@@ -16,7 +17,9 @@ type ShowDataButtonProps = {
 };
 
 const ShowDataButton = ({ id, style }: ShowDataButtonProps) => {
-	const data = useGetRowDataById(id, ['adminItems']) || defaultCrawlingData;
+	const page = useGetPageNumber();
+	const data =
+		useGetRowDataById(id, ['adminItems', page]) || defaultCrawlingData;
 
 	const renderImageOrImages = (key: TableDataKey) => {
 		const dataInString = data[key as keyof typeof data].toString();
