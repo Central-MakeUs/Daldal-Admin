@@ -1,24 +1,13 @@
-import { useParams } from 'react-router-dom';
-
+import PagePagination from '@components/atoms/PagePagination';
 import AddRowButton from '@components/molcules/main/AddRowButton';
 import MainTable from '@components/templates/MainTable';
-import {
-	Pagination,
-	PaginationContent,
-	PaginationEllipsis,
-	PaginationItem,
-	PaginationLink,
-	PaginationNext,
-	PaginationPrevious,
-} from '@components/ui/pagination';
 import { useGetAdminItems } from '@hooks/apis/item';
+import { useGetPageNumber } from '@hooks/page';
 import PageLayout from '@layouts/PageLayout';
 
 const Main = () => {
-	const params = useParams();
-
-	const page = params.page || 1;
-	const { data, isLoading, isError, error } = useGetAdminItems(+page);
+	const page = useGetPageNumber();
+	const { data, isLoading, isError, error } = useGetAdminItems(page);
 	const lastPage = data?.lastPageNum || 1;
 
 	if (isLoading) {
@@ -33,28 +22,7 @@ const Main = () => {
 		<PageLayout>
 			<AddRowButton />
 			<MainTable />
-			<Pagination>
-				<PaginationContent>
-					<PaginationItem>
-						<PaginationPrevious href={`${+page - 1 > 0 ? +page - 1 : 1}`}>
-							Previous
-						</PaginationPrevious>
-					</PaginationItem>
-					<PaginationItem>
-						<PaginationLink href={`${page}`}>{page}</PaginationLink>
-					</PaginationItem>
-					<PaginationItem>
-						<PaginationEllipsis />
-					</PaginationItem>
-					<PaginationItem>
-						<PaginationNext
-							href={`${+page + 1 <= lastPage ? +page + 1 : lastPage}`}
-						>
-							Next
-						</PaginationNext>
-					</PaginationItem>
-				</PaginationContent>
-			</Pagination>
+			<PagePagination page={page} lastPage={lastPage} route="" />
 		</PageLayout>
 	);
 };

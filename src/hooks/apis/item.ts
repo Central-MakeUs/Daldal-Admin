@@ -7,12 +7,13 @@ import {
 	registerSuggestedProduct,
 	unregisterSuggestedProduct,
 } from '@apis/item';
+import { useGetPageNumber } from '@hooks/page';
 import { AddYoutubeUrlRequestDTO } from '@models/crawling/request/addYoutubeUrlRequestDTO';
 import { TableDataId } from '@type/table';
 
 const useGetAdminItems = (page: number = 1) => {
 	return useQuery({
-		queryKey: ['adminItems'],
+		queryKey: ['adminItems', page],
 		queryFn: () => getAdminItems(page),
 		select: data => data.data,
 	});
@@ -20,11 +21,13 @@ const useGetAdminItems = (page: number = 1) => {
 
 const useCrawlAdminItems = () => {
 	const queryClient = useQueryClient();
+	const page = useGetPageNumber();
+
 	const { mutate } = useMutation({
-		mutationKey: ['adminItems'],
+		mutationKey: ['adminItems', page],
 		mutationFn: (url: string) => crawlAdminItems(url),
 		onSuccess: () =>
-			queryClient.invalidateQueries({ queryKey: ['adminItems'] }),
+			queryClient.invalidateQueries({ queryKey: ['adminItems', page] }),
 	});
 
 	return { crawlAdminItemsByUrl: mutate };
@@ -32,6 +35,7 @@ const useCrawlAdminItems = () => {
 
 const useAddVideoUrl = () => {
 	const queryClient = useQueryClient();
+
 	const { mutate } = useMutation({
 		mutationKey: ['adminItems'],
 		mutationFn: ({ url, id }: AddYoutubeUrlRequestDTO) => addVideoUrl(url, id),
@@ -44,6 +48,7 @@ const useAddVideoUrl = () => {
 
 const useRegisterSuggestedProduct = () => {
 	const queryClient = useQueryClient();
+
 	const { mutate } = useMutation({
 		mutationKey: ['adminItems'],
 		mutationFn: (id: TableDataId) => registerSuggestedProduct(id),
@@ -56,6 +61,7 @@ const useRegisterSuggestedProduct = () => {
 
 const useUnregisterSuggestedProduct = () => {
 	const queryClient = useQueryClient();
+
 	const { mutate } = useMutation({
 		mutationKey: ['adminItems'],
 		mutationFn: (id: TableDataId) => unregisterSuggestedProduct(id),

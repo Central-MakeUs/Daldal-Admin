@@ -32,7 +32,7 @@ const Table = ({ columns, datas }: TableProps) => {
 										style={style}
 										isEditable={isEditable}
 										isClickable={isClickPossible}
-										key={`TableData#${key}`}
+										key={`TableData#${key}${data[key as keyof typeof data]}`}
 										id={data.id}
 									/>
 								);
