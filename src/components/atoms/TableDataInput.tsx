@@ -87,6 +87,8 @@ const TableDataInput = ({
 						approveWithdraw({ id });
 					} else if (value === 'N') {
 						rejectWithdraw({ id });
+					} else {
+						alert('입력을 다시 확인해주세요.');
 					}
 				}
 			}
