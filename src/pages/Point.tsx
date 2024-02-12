@@ -1,15 +1,13 @@
-import { useParams } from 'react-router-dom';
-
 import PagePagination from '@components/atoms/PagePagination';
 import CurrentRequestSection from '@components/organisms/point/CurrentRequestSection';
 import PastRequestSection from '@components/organisms/point/PastRequestSection';
 import { useGetPoints } from '@hooks/apis/point';
+import { useGetPageNumber } from '@hooks/page';
 import PageLayout from '@layouts/PageLayout';
 
 const Point = () => {
-	const params = useParams();
-	const page = params.page || 1;
-	const { data: datas, isLoading, isError, error } = useGetPoints(+page);
+	const page = useGetPageNumber();
+	const { data: datas, isLoading, isError, error } = useGetPoints(page);
 
 	const lastPage = datas?.pageNum || 1;
 
@@ -27,7 +25,7 @@ const Point = () => {
 				<CurrentRequestSection datas={datas?.buys || []} />
 				<PastRequestSection datas={datas?.buys || []} />
 			</div>
-			<PagePagination page={+page} lastPage={lastPage} route="/point" />
+			<PagePagination page={page} lastPage={lastPage} route="/point" />
 		</PageLayout>
 	);
 };
