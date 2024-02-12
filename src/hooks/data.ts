@@ -4,7 +4,10 @@ import { AdminItemsResponseDTO } from '@models/crawling/response/adminItemsRespo
 import { ApiResponse } from '@type/apiResponse';
 import { TableDataId } from '@type/table';
 
-export const useGetRowDataById = (id: TableDataId, queryKey: string[]) => {
+export const useGetRowDataById = (
+	id: TableDataId,
+	queryKey: (string | number)[],
+) => {
 	const queryClient = useQueryClient();
 	const data =
 		queryClient.getQueryData<ApiResponse<AdminItemsResponseDTO>>(queryKey)?.data
