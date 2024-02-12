@@ -6,7 +6,7 @@ import { RejectWithdrawRequest } from '@models/user/request/rejectWithdrawReques
 
 const useGetUsers = (page: number = 1) => {
 	return useQuery({
-		queryKey: ['users'],
+		queryKey: ['users', page],
 		queryFn: () => getUsers(page),
 		select: data => data.data,
 	});
