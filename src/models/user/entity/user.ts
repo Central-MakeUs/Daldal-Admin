@@ -9,7 +9,7 @@ export type UserTableData = {
 	accountBank: string;
 	account: string;
 	uploadTime: string;
-	refundStatus: 'WITHDRAWN_IN_PROGRESS' | 'SUCCESS' | 'FAIL';
+	refundStatus: 'WITHDRAWN_IN_PROGRESS' | 'WITHDRAWN_COMPLETED';
 };
 
 export type UserTableDataKey = keyof UserTableData;
