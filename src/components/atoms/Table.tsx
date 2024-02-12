@@ -10,7 +10,7 @@ type TableProps = {
 
 const Table = ({ columns, datas }: TableProps) => {
 	return (
-		<table className="w-full h-full table-fixed">
+		<table className="w-full h-fit table-fixed">
 			<thead>
 				<tr className="bg-Title_Background">
 					{columns.map(({ name, key, style }) => (
