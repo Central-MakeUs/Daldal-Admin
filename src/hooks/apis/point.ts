@@ -6,7 +6,7 @@ import { RejectPointRequestDTO } from '@models/point/request/rejectPointRequestD
 
 const useGetPoints = (page: number = 1) => {
 	return useQuery({
-		queryKey: ['points'],
+		queryKey: ['points', page],
 		queryFn: () => getPoints(page),
 		select: data => data.data,
 	});
