@@ -6,9 +6,7 @@ import { TableDataId } from '@type/table';
 export const getUsers = async (
 	page: number,
 ): Promise<ApiResponse<UserResponseDTO>> => {
-	const response = await api.get(
-		`api/v1/admin/buys/{buyId}/withdraw?page=${page}`,
-	);
+	const response = await api.get(`api/v1/admin/buys/withdraw?page=${page}`);
 
 	return response.data;
 };
