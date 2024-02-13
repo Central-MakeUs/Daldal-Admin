@@ -32,3 +32,18 @@ export const approvePoint = async (id: TableDataId) => {
 
 	return response.data;
 };
+
+export const setPurchaseAmount = async (id: TableDataId, purchase: string) => {
+	const response = await api.patch(
+		`/api/v1/admin/buys/${id}/purchase-amount`,
+		null,
+		{
+			params: {
+				buyId: id,
+				purchase: purchase,
+			},
+		},
+	);
+
+	return response.data;
+};
