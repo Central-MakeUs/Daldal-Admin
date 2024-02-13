@@ -6,9 +6,14 @@ import {
 	useRegisterSuggestedProduct,
 	useUnregisterSuggestedProduct,
 } from '@hooks/apis/item';
-import { useApprovePoint, useRejectPoint } from '@hooks/apis/point';
+import {
+	useApprovePoint,
+	useRejectPoint,
+	useSetPurchaseAmount,
+} from '@hooks/apis/point';
 import { useApproveWithdraw, useRejectWithdraw } from '@hooks/apis/user';
 import { TableDataId, TableDataKey, TableDataValue } from '@type/table';
+import { isNumber } from '@utils/formatData';
 
 type TableDataInputProps = {
 	value: TableDataValue;
@@ -33,6 +38,7 @@ const TableDataInput = ({
 	const { approvePoint } = useApprovePoint();
 	const { approveWithdraw } = useApproveWithdraw();
 	const { rejectWithdraw } = useRejectWithdraw();
+	const { setPurchaseAmount } = useSetPurchaseAmount();
 
 	const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
 		setValue(event.target.value);
@@ -90,6 +96,20 @@ const TableDataInput = ({
 					} else {
 						alert('입력을 다시 확인해주세요.');
 					}
+				}
+			}
+
+			if (headerKey === 'purchase') {
+				if (value === '') {
+					alert('구매액을 입력해주세요.');
+					return;
+				} else {
+					if (!isNumber(String(value))) {
+						alert('숫자만 입력해주세요.');
+						return;
+					}
+
+					setPurchaseAmount({ id, purchase: String(value) });
 				}
 			}
 		}
