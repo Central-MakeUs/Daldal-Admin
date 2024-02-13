@@ -19,9 +19,17 @@ export const getFormattedTableData = (
 			return value ? 'Y' : 'N';
 		case 'refundStatus':
 			return refundStatusMapping[value as refundStatusType];
+		case 'purchase':
+		case 'refund':
+		case 'price':
+			return formatNumberWithComma(value as string);
 		default:
 			return value;
 	}
+};
+
+export const formatNumberWithComma = (value: string) => {
+	return Intl.NumberFormat().format(Number(value));
 };
 
 export const isNumber = (value: string) => {
