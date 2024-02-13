@@ -23,3 +23,7 @@ export const getFormattedTableData = (
 			return value;
 	}
 };
+
+export const isNumber = (value: string) => {
+	return /^[0-9]*$/.test(value);
+};
