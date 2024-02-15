@@ -13,6 +13,7 @@ export const defaultCrawlingData: TableData = {
 	isSuggested: false,
 	price: 0,
 	isOpen: false,
+	delete: '삭제',
 };
 
 type TableDataStore = {

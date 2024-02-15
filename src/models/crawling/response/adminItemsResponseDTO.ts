@@ -9,6 +9,7 @@ export type AdminItem = {
 	imageUrls: string[];
 	videoUrls: string[];
 	isOpen: false;
+	delete: '삭제';
 };
 
 export type AdminItemList = AdminItem[];
