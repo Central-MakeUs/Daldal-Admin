@@ -3,12 +3,14 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import {
 	addVideoUrl,
 	crawlAdminItems,
+	deleteItem,
 	getAdminItems,
 	registerSuggestedProduct,
 	unregisterSuggestedProduct,
 } from '@apis/item';
 import { useGetPageNumber } from '@hooks/page';
 import { AddYoutubeUrlRequestDTO } from '@models/crawling/request/addYoutubeUrlRequestDTO';
+import { DeleteItemRequestDTO } from '@models/crawling/request/deleteItemRequestDTO';
 import { TableDataId } from '@type/table';
 
 const useGetAdminItems = (page: number = 1) => {
@@ -72,10 +74,24 @@ const useUnregisterSuggestedProduct = () => {
 	return { unregisterSuggestedProduct: mutate };
 };
 
+const useDeleteItem = () => {
+	const queryClient = useQueryClient();
+
+	const { mutate } = useMutation({
+		mutationKey: ['adminItems'],
+		mutationFn: ({ id }: DeleteItemRequestDTO) => deleteItem(id),
+		onSuccess: () =>
+			queryClient.invalidateQueries({ queryKey: ['adminItems'] }),
+	});
+
+	return { deleteItem: mutate };
+};
+
 export {
 	useGetAdminItems,
 	useCrawlAdminItems,
 	useAddVideoUrl,
 	useRegisterSuggestedProduct,
 	useUnregisterSuggestedProduct,
+	useDeleteItem,
 };
