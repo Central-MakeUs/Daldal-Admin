@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 
+import DeleteItemButton from '@components/atoms/DeleteItemButton';
 import ShowDataButton from '@components/atoms/ShowDataButton';
 import ShowImagesButton from '@components/atoms/ShowImagesButton';
 import TableDataInput from '@components/atoms/TableDataInput';
@@ -56,6 +57,8 @@ const TableData = ({
 			return <ShowDataButton id={id} style={style} />;
 		} else if (headerKey === 'certImageUrl') {
 			return <ShowImagesButton value={String(value)} style={style} />;
+		} else if (headerKey === 'delete') {
+			return <DeleteItemButton id={id} style={style} />;
 		}
 	}
 
