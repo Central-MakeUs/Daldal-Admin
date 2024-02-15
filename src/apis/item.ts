@@ -36,3 +36,9 @@ export const unregisterSuggestedProduct = async (id: TableDataId) => {
 
 	return response.data;
 };
+
+export const deleteItem = async (id: TableDataId) => {
+	const response = await api.delete(`api/v1/items/${id}`, { params: { id } });
+
+	return response.data;
+};
