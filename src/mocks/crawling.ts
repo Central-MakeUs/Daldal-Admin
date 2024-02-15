@@ -20,6 +20,7 @@ export const crawlingTableMockData: (
 	isSuggested: true,
 	isOpen: true,
 	price: 10000,
+	delete: '삭제',
 });
 
 export const crawlingTableMockDataList = Array(10)
