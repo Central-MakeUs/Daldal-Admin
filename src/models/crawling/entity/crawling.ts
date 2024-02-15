@@ -11,6 +11,7 @@ export type CrawlingTableData = {
 	imageUrls: string[];
 	videoUrls: string[];
 	isOpen: boolean;
+	delete: '삭제';
 };
 
 export type CrawlingTableDataKey = keyof CrawlingTableData;

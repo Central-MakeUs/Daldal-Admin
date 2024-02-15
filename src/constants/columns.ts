@@ -46,6 +46,12 @@ export const crawlingWritableTableColumns: TableColumnList = [
 		style: 'w-max-[125px] w-full ',
 		isClickPossible: true,
 	},
+	{
+		name: '삭제',
+		key: 'delete',
+		style: 'w-max-[125px] w-full ',
+		isClickPossible: true,
+	},
 ];
 
 export const userTableColumns: TableColumnList = [
