@@ -1,8 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import { twMerge } from 'tailwind-merge';
 
+import logo from '@assets/Logo.png';
+
 const Header = () => {
-	const navLinkStyle = 'text-black px-[84px] py-3';
+	const navLinkStyle = 'text-black py-3 typography-Subhead';
 	const activeLinkStyle = 'bg-Primary';
 
 	const navLinkStyleByActive = ({ isActive }: { isActive: boolean }): string =>
@@ -10,8 +12,10 @@ const Header = () => {
 
 	return (
 		<header className="flex justify-between pl-[30px] pr-20 items-center h-20">
-			로고
-			<div className="flex">
+			<div>
+				<img src={logo} alt="로고" />
+			</div>
+			<div className="flex w-full w-max-[1052px]">
 				<NavLink to="/" className={navLinkStyleByActive}>
 					메인페이지
 				</NavLink>
