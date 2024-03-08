@@ -13,10 +13,8 @@ const Header = () => {
 
 	return (
 		<header className="flex justify-between px-[30px] items-center h-20 w-[1920px] bg-White">
-			<div>
-				<img src={logo} alt="로고" />
-			</div>
-			<div className="flex w-full w-max-[1052px]">
+			<img src={logo} alt="로고" />
+			<div className="flex">
 				<NavLink to="/" className={navLinkStyleByActive}>
 					메인페이지
 				</NavLink>
