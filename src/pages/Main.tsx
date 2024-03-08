@@ -20,7 +20,9 @@ const Main = () => {
 
 	return (
 		<PageLayout>
-			<AddRowButton />
+			<div className="fixed top-[126px] right-[72px]">
+				<AddRowButton />
+			</div>
 			<MainTable />
 			<PagePagination page={page} lastPage={lastPage} route="" />
 		</PageLayout>

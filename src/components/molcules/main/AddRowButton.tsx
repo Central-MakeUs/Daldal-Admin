@@ -27,13 +27,11 @@ const AddRowButton = () => {
 	};
 
 	return (
-		<div className="flex gap-[10px] self-end">
-			<ButtonWithIcon
-				icon={{ id: 'plus', color: 'Black', size: 26 }}
-				title="추가하기"
-				action={handleAddColumns}
-			/>
-		</div>
+		<ButtonWithIcon
+			icon={{ id: 'plus', color: 'Black', size: 26 }}
+			title="추가하기"
+			action={handleAddColumns}
+		/>
 	);
 };
 
