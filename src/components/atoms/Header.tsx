@@ -4,14 +4,15 @@ import { twMerge } from 'tailwind-merge';
 import logo from '@assets/Logo.png';
 
 const Header = () => {
-	const navLinkStyle = 'text-black py-3 typography-Subhead';
+	const navLinkStyle =
+		'text-black py-3 typography-Subhead w-[260px] text-center';
 	const activeLinkStyle = 'bg-Primary';
 
 	const navLinkStyleByActive = ({ isActive }: { isActive: boolean }): string =>
 		twMerge(isActive ? activeLinkStyle : '', navLinkStyle);
 
 	return (
-		<header className="flex justify-between pl-[30px] pr-20 items-center h-20">
+		<header className="flex justify-between px-[30px] items-center h-20 w-[1920px] bg-White">
 			<div>
 				<img src={logo} alt="로고" />
 			</div>
