@@ -9,7 +9,7 @@ type CrawlingSectionProps = {
 
 const CrawlingSection = ({ datas }: CrawlingSectionProps) => {
 	return (
-		<div className="flex flex-col w-[1276px]">
+		<div className="flex flex-col">
 			<SectionTitle title="크롤링" />
 			<Table columns={crawlingReadOnlyTableColumns} datas={datas} />
 		</div>

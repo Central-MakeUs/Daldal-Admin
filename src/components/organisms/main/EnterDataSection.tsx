@@ -9,7 +9,7 @@ type EnterDataSectionProps = {
 
 const EnterDataSection = ({ datas }: EnterDataSectionProps) => {
 	return (
-		<div className="flex flex-col w-[500px]">
+		<div className="flex flex-col">
 			<SectionTitle title="추가입력" />
 			<Table columns={crawlingWritableTableColumns} datas={datas} />
 		</div>
