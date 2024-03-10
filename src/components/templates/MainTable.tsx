@@ -16,7 +16,7 @@ const MainTable = () => {
 	])?.data;
 
 	return (
-		<div className="flex gap-[34px]">
+		<div className="flex gap-[34px] mt-[50px]">
 			<CrawlingSection datas={data?.adminItemResponses || []} />
 			<EnterDataSection datas={data?.adminItemResponses || []} />
 		</div>

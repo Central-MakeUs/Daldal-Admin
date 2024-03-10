@@ -15,7 +15,12 @@ const Table = ({ columns, datas }: TableProps) => {
 				<tr className="bg-Title_Background">
 					{columns.map(({ name, key, style }) => (
 						<th className={twMerge('border overflow-hidden', style)} key={key}>
-							{name}
+							<div className="relative">
+								&nbsp;
+								<div className="absolute left-0 top-0 w-full whitespace-nowrap text-ellipsis">
+									{name}
+								</div>
+							</div>
 						</th>
 					))}
 				</tr>
