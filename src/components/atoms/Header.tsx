@@ -12,7 +12,7 @@ const Header = () => {
 		twMerge(isActive ? activeLinkStyle : '', navLinkStyle);
 
 	return (
-		<header className="flex justify-between px-[30px] items-center h-20 w-[1920px] bg-White">
+		<header className="flex justify-between px-[30px] items-center h-20 w-full bg-White box-border">
 			<img src={logo} alt="로고" />
 			<div className="flex">
 				<NavLink to="/" className={navLinkStyleByActive}>

@@ -1,55 +1,55 @@
 import { TableColumnList } from '@type/table';
 
 export const crawlingReadOnlyTableColumns: TableColumnList = [
-	{ name: '상품명', key: 'title', style: 'w-full' },
-	{ name: '상품 가격', key: 'price', style: 'w-[141px]' },
+	{ name: '상품명', key: 'title', style: 'w-[100px]' },
+	{ name: '상품 가격', key: 'price', style: 'w-[100px]' },
 	{
 		name: '대표 이미지',
 		key: 'thumbnailUrl',
-		style: 'w-[142px]',
+		style: 'w-[100px]',
 	},
 	{
 		name: '세부 이미지',
 		key: 'imageUrls',
-		style: 'w-[142px]',
+		style: 'w-[100px]',
 	},
 	{
 		name: '카테고리',
 		key: 'categoryType',
-		style: 'w-[142px] ',
+		style: 'w-[100px] ',
 	},
-	{ name: '유튜브', key: 'videoUrls', style: 'w-[142px] ' },
+	{ name: '유튜브', key: 'videoUrls', style: 'w-[100px] ' },
 ];
 
 export const crawlingWritableTableColumns: TableColumnList = [
 	{
 		name: '상품링크',
 		key: 'redirectUrl',
-		style: 'w-[125px] ',
+		style: 'w-[80px] ',
 		isEditable: true,
 	},
 	{
 		name: '유튜브링크',
 		key: 'videoUrls',
-		style: 'w-[125px] ',
+		style: 'w-[80px] ',
 		isEditable: true,
 	},
 	{
 		name: 'Y/N',
 		key: 'isSuggested',
-		style: 'w-[125px] ',
+		style: 'w-[80px] ',
 		isEditable: true,
 	},
 	{
 		name: '보기',
 		key: 'isOpen',
-		style: 'w-[125px] ',
+		style: 'w-[80px] ',
 		isClickPossible: true,
 	},
 	{
 		name: '삭제',
 		key: 'delete',
-		style: 'w-[125px] ',
+		style: 'w-[80px] ',
 		isClickPossible: true,
 	},
 ];
